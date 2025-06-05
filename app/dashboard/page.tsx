@@ -10,20 +10,20 @@ export default function Dashboard() {
         <h1 className="text-3xl font-bold mb-6 text-primary">Dashboard Overview</h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-card p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-black">Users</h2>
-            <p className="text-black mt-2">125 Active Users</p>
+            <h2 className="text-xl font-semibold text-black">Branch1</h2>
+            <p className="text-black mt-2">Branch details</p>
           </div>
           <div className="bg-card p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-black">Sales</h2>
-            <p className="text-black mt-2">₹48,000 This Month</p>
+            <h2 className="text-xl font-semibold text-black">Branch2</h2>
+            <p className="text-black mt-2">Branch details</p>
           </div>
           <div className="bg-card p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-black">Reports</h2>
-            <p className="text-black mt-2">8 New Reports</p>
+            <h2 className="text-xl font-semibold text-black">Branch3</h2>
+            <p className="text-black mt-2">Branch details</p>
           </div>
           <div className="bg-card p-6 rounded-xl shadow">
-            <h2 className="text-xl font-semibold text-black">Reports</h2>
-            <p className="text-black mt-2">8 New Reports</p>
+            <h2 className="text-xl font-semibold text-black">Branch4</h2>
+            <p className="text-black mt-2">Branch details</p>
           </div>
         </div>
       </div>
