@@ -2,13 +2,16 @@
 
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 
 export default function CreateUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const handleCreate = () => {
-    // Just a log for now, you can replace this with API call logic
     console.log("User Created:", { name, email });
     alert(`User Created!\nName: ${name}\nEmail: ${email}`);
     setName("");
@@ -17,32 +20,42 @@ export default function CreateUser() {
 
   return (
     <>
-    <Navbar />
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
-      <div className="w-full max-w-sm bg-white p-6 rounded-2xl shadow-lg">
-        <h1 className="text-2xl font-bold mb-6 text-center text-primary">Create Organization</h1>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
-          className="w-full border border-gray-300 p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-400"
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          className="w-full border border-gray-300 p-3 rounded-lg mb-6 focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-400"
-        />
-        <button
-          onClick={handleCreate}
-          className="w-full bg-primary text-white p-3 rounded-lg text-lg hover:opacity-90 transition"
-        >
-          Create
-        </button>
+      <Navbar />
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4">
+        <Card className="w-full max-w-sm">
+          <CardContent className="p-6 space-y-4">
+            <h1 className="text-2xl font-bold text-center text-primary">Create Organization</h1>
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-black">Name</Label>
+              <Input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter your name"
+                className="placeholder-gray-400"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-black">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="placeholder-gray-400"
+              />
+            </div>
+            <Button
+              onClick={handleCreate}
+              className="w-full bg-primary text-white text-lg"
+            >
+              Create
+            </Button>
+          </CardContent>
+        </Card>
       </div>
-    </div>
     </>
   );
 }

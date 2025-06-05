@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-// import Navbar from "./components/Navbar";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -12,7 +15,7 @@ export default function Home() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (email.trim() && password.trim()) {
-      // In real apps you'd authenticate here
+      // Replace this with real authentication later
       router.push("/dashboard");
     } else {
       alert("Please fill in both fields.");
@@ -21,37 +24,42 @@ export default function Home() {
 
   return (
     <div className="bg-white min-h-screen flex flex-col">
-      {/* <Navbar /> */}
       <div className="flex flex-1 flex-col items-center justify-center text-center p-8">
         <h1 className="text-4xl font-bold text-primary mb-6">Admin Panel Login</h1>
-        <form onSubmit={handleLogin} className="bg-card p-8 rounded-xl shadow-lg w-full max-w-sm space-y-4">
-          <div>
-            <label className="block text-left mb-1 font-medium text-black">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-300 text-gray-900"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div>
-            <label className="block text-left mb-1 font-medium text-black">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-300 text-gray-900"
-              placeholder="Enter your password"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-primary text-white px-4 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
-          >
-            Login
-          </button>
-        </form>
+        <Card className="w-full max-w-sm">
+          <CardContent className="p-8 space-y-4">
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="text-left space-y-1">
+                <Label htmlFor="email" className="text-black">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="placeholder-gray-400"
+                />
+              </div>
+              <div className="text-left space-y-1">
+                <Label htmlFor="password" className="text-black">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  className="placeholder-gray-400"
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-primary text-white text-lg"
+              >
+                Login
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
