@@ -4,7 +4,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 export default function Dashboard() {
-  const allOrganizations = Array.from({ length: 500 }, (_, i) => ({
+  const allOrganizations = Array.from({ length: 50 }, (_, i) => ({
     id: i + 1,
     name: `Organization ${i + 1}`,
     description: `Information about Organization ${i + 1}`,
