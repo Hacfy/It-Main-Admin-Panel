@@ -49,7 +49,7 @@ export default function Dashboard() {
         {/* Pagination Controls */}
         <div className="flex justify-between items-center mt-8 text-gray-700">
           <p className="text-sm">
-            {startIndex + 1}–{endIndex} of {totalItems}
+            Page {currentPage} of {totalPages}
           </p>
 
           <div className="flex space-x-4">
