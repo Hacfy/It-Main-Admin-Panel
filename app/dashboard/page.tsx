@@ -4,7 +4,7 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 export default function Dashboard() {
-  const allOrganizations = Array.from({ length: 50 }, (_, i) => ({
+  const allOrganizations = Array.from({ length: 500 }, (_, i) => ({
     id: i + 1,
     name: `Organization ${i + 1}`,
     description: `Information about Organization ${i + 1}`,
@@ -28,13 +28,13 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen flex flex-col">
       <Navbar />
-      <div className="p-8">
+      <div className="flex-grow p-8 flex flex-col">
         <h1 className="text-3xl font-bold mb-6 text-primary">Organization Overview</h1>
 
         {/* Grid of Organizations */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-grow">
           {currentItems.map((org) => (
             <div
               key={org.id}
