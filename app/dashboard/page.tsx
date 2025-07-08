@@ -2,16 +2,12 @@
 
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import { allOrganizations } from '../resources/organizations';
 
 export default function Dashboard() {
-  const allOrganizations = Array.from({ length: 500 }, (_, i) => ({
-    id: i + 1,
-    name: `Organization ${i + 1}`,
-    description: `Information about Organization ${i + 1}`,
-  }));
-
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
+
   const totalItems = allOrganizations.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
